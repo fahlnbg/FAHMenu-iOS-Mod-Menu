@@ -3,7 +3,7 @@
 <div style="text-align: center;">
 <b>Giao diện người dùng mẫu của Menu:</b><br>
 
-<img src="https://i.imgur.com/f20XTb4.png">
+<img src="https://i.imgur.com/a/SJoMloP">
 </div>
 
 <br>
@@ -17,40 +17,40 @@
   * Công tắc nhập liệu
   * Công tắc thanh trượt
 
-* Backend Offset Patcher Switch dưa  [KittyMemory](https://github.com/MJx0/KittyMemory)
-  * Original bytes are **not** required
-  * Hỗ  MSHookMemory
-  * Viết byte không giới hạn để bù đắp
+* Backend Offset Patcher Switch dựa trên [KittyMemory](https://github.com/MJx0/KittyMemory)
+  * **Không** cần patch bytes gốc
+  * Hỗ trợ MSHookMemory
+  * Patch Bytes không giới hạn kí tự
   * 
-* Compile-time string encryption
+* Mã hoá các offset và bytes khi compile code
 
 
 <br>
 
-### Installation:
+### Cài đặt:
 
-Soonn
+Thiên thu nữa nhé! >.<
 
-### Menu setup:
+### Cài đặt menu:
 
-**Changing the menu images**
-Inside the **Tweak.xm**, you'll setup the menu under the function "setupMenu". 
-Here you'll see two options under the menu: menuIcon & menuButton, those require a base64 image string.
+**Đổi ảnh cho menu**
+Trong file **Tweak.xm**, sẽ có thiết lập chức năng cho menu trong "setupMenu". 
+Tại đây, sẽ có hai tùy chọn trong menu: menuIcon & menuButton, những option này yêu cầu chuỗi hình ảnh base64.
 In order to get a base64 string from the image, upload the image here: https://www.browserling.com/tools/image-to-base64
 
-Images 50x50 are recommended, you can get a sample of my images by copying the standard(in tweak.xm) base64 string & use this website to show the picture: https://base64.guru/converter/decode/image
+Ảnh size 50x50, có thể lấy mẫu hình ảnh bằng cách sao chép chuỗi base64 (trong tweak.xm) và sử dụng trang web này để hiển thị hình ảnh: https://base64.guru/converter/decode/image
 
-**Setting a framework as executable**
-You can set this in the function setupMenu() inside Tweak.xm
+**Set một framework để có thể chạy**
+Có thể set trong hàm setupMenu() trong Tweak.xm
 ```obj-c
 [menu setFrameworkName:"FrameworkName"];
 ```
 
-### Menu usage:
+### Cách dùng menu:
 
-**Encryption**
+**Mã hoá**
 
-A quick note before showing all the switch examples; You can and *should* encrypt offsets, hexes, c-strings and NSStrings. Below you can find the proper syntax per string-type.
+Note trước khi hiển thị tất cả các ví dụ chuyển đổi; Có thể và *nên* mã hóa các offset,mã hexes, chuỗi c-string và NSStrings. Dưới đây, có thể thấy cú pháp cho mỗi loại chuỗi.
 
 **Offsets:**
 ```c
@@ -67,7 +67,7 @@ ENCRYPTHEX("0x00F0271E0008201EC0035FD6")
 NSSENCRYPT("Copperplate-Bold")
 ```
 
-<b> Patching mà không cần chuyđổiđổi </b>
+<b> Patching mà không cần chuyển đổi </b>
 ```c
 patchOffset(ENCRYPTOFFSET("0x1002DB3C8"), ENCRYPTHEX("0xC0035FD6"));
 patchOffset(ENCRYPTOFFSET("0x10020D2D4"), ENCRYPTHEX("0x00008052C0035FD6"));
@@ -114,7 +114,7 @@ patchOffset(ENCRYPTOFFSET("0x10020D3A8"), ENCRYPTHEX("00 F0 27 1E 00 08 20 1E C0
  BOOL isOn = [menu isItemOn:@"Switch Name Goes Here"];
 
 if(isOn) {
-  //Do stuff
+  //Linh tinh
 }
 
 ```

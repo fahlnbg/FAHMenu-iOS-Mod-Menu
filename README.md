@@ -3,7 +3,7 @@
 <div style="text-align: center;">
 <b>Giao diện người dùng mẫu của Menu:</b><br>
 
-<img src="https://i.imgur.com/a/SJoMloP">
+<img src="https://i.imgur.com/8pIh2Va.jpeg">
 </div>
 
 <br>

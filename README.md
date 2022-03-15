@@ -30,7 +30,8 @@
 
 * Bước 1: Cần cài Theos vào iOS
 * Bước 2: Tải [FAHMenu Mod Menu](https://github.com/fahlnbg/FAHMenu-iOS-Mod-Menu/blob/main/FAHMenu-iOS-Mod-Menu.nic.tar?raw=true) về Đường dẫn : /var/theos/templates/ios
-
+* LƯU Ý : Cần cài đặt file [libFAHMenu](https://github.com/fahlnbg/FAHMenu-iOS-Mod-Menu/blob/main/com.fahlnbg.libfahmenu_1.0_iphoneos-arm.deb?raw=true) để Tweak được hoạt động
+* 
 Khi cần làm 1 project mới thì chạy lệnh : "/var/theos/bin/nic.pl" và điền thông tin Mod
 
 ### Cài đặt menu:
@@ -44,6 +45,20 @@ Có thể set trong hàm trong Tweak.xm (Nếu app bạn làm có Framework , c�
 ```obj-c
 [UIPatch setFrameworkName:"UnityFramework"];
 ```
+**Các cài đặt khác**
+
+```obj-c
+// Có thể có hoặc không
+[menu setTitle:@"@@APPNAME@@ Mod Menu"];
+[menu setIconMenu:MenuIcon];
+[menu setMainColor:[UIColor redColor]];
+[menu setCredits:@"@@APPNAME@@ Mod Menu by @@USER@@!"];
+[menu setLoveURL:@"https://www.facebook.com/fahlnbg"];
+
+// Bắt buộc phải 
+[menu initMenu]; 
+```
+
 
 ### Cách dùng menu:
 
@@ -107,7 +122,7 @@ patchOffset(ENCRYPTOFFSET("0x10020D3A8"), ENCRYPTHEX("00 F0 27 1E 00 08 20 1E C0
 ```
 <b>Công tắc Memory: </b>
 ```obj-c
-[menu addToggleMemoryItem:@"TESt" range:{ENCRYPTOFFSET("0x05529838"),ENCRYPTOFFSET("0x055298DC")} search:@[@30, @40, @50];
+[menu addToggleMemoryItem:@"Test" range:{ENCRYPTOFFSET("0x05529838"),ENCRYPTOFFSET("0x055298DC")} search:@[@30, @40, @50];
 ```
 
 

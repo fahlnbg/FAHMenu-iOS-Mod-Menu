@@ -29,7 +29,7 @@
 ### Cài đặt:
 
 * Bước 1: Cần cài Theos vào iOS
-* Bước 2: Tải [FAHMenu Mod Menu]https://github.com/fahlnbg/FAHMenu-iOS-Mod-Menu/blob/main/FAHMenu-iOS-Mod-Menu.nic.tar?raw=true) về Đường dẫn : /var/theos/templates/ios
+* Bước 2: Tải [FAHMenu Mod Menu](https://github.com/fahlnbg/FAHMenu-iOS-Mod-Menu/blob/main/FAHMenu-iOS-Mod-Menu.nic.tar?raw=true) về Đường dẫn : /var/theos/templates/ios
 
 Khi cần làm 1 project mới thì chạy lệnh : "/var/theos/bin/nic.pl" và điền thông tin Mod
 

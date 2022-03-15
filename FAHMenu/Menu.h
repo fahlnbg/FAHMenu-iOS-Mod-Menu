@@ -30,7 +30,6 @@
 - (float)getSliderValue:(NSString *)itemName;
 - (NSString *)getTextfieldValue:(NSString *)itemName;
 - (float)getIndexValue:(NSString *)itemName;
-- (void)getOffset;
 
 
 @end

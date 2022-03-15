@@ -1,9 +1,9 @@
 # iOS Mod Menu Template for Theos!
 
 <div style="text-align: center;">
-<b>Giao diện người dùng mẫu của Menu:</b><br>
+<b>Giao diện người dùng mẫu của Menu:</b><br><br>
 
-<img src="https://i.imgur.com/8pIh2Va.jpeg">
+<img src="https://github.com/fahlnbg/FAHMenu-iOS-Mod-Menu/blob/main/Screenshot/Preview.PNG">
 </div>
 
 <br>
@@ -11,9 +11,10 @@
 ### Tính năng:
 * Giao diện người dùng có thể tùy chỉnh
 * Menu có thể tùy chỉnh & biểu tượng hình ảnh nút
-* 4 loại Công tắc :
-  * Offset Patcher Nút
-  * Công tắc chuyển 
+* 5 loại Công tắc :
+  * Công tắc Offset
+  * Công tắc Memory
+  * Công tắc nhiều chuyển đổi 
   * Công tắc nhập liệu
   * Công tắc thanh trượt
 
@@ -21,29 +22,27 @@
   * **Không** cần patch bytes gốc
   * Hỗ trợ MSHookMemory
   * Patch Bytes không giới hạn kí tự
-  * 
-* Mã hoá các offset và bytes khi compile code
-
+* Mã hoá các offset và bytes khi hoàn thành code
 
 <br>
 
 ### Cài đặt:
 
-Thiên thu nữa nhé! >.<
+* Bước 1: Cần cài Theos vào iOS
+* Bước 2: Tải [FAHMenu Mod Menu]https://github.com/fahlnbg/FAHMenu-iOS-Mod-Menu/blob/main/FAHMenu-iOS-Mod-Menu.nic.tar?raw=true) về Đường dẫn : /var/theos/templates/ios
+
+Khi cần làm 1 project mới thì chạy lệnh : "/var/theos/bin/nic.pl" và điền thông tin Mod
 
 ### Cài đặt menu:
 
 **Đổi ảnh cho menu**
-Trong file **Tweak.xm**, sẽ có thiết lập chức năng cho menu trong "setupMenu". 
-Tại đây, sẽ có hai tùy chọn trong menu: menuIcon & menuButton, những option này yêu cầu chuỗi hình ảnh base64.
-In order to get a base64 string from the image, upload the image here: https://www.browserling.com/tools/image-to-base64
-
-Ảnh size 50x50, có thể lấy mẫu hình ảnh bằng cách sao chép chuỗi base64 (trong tweak.xm) và sử dụng trang web này để hiển thị hình ảnh: https://base64.guru/converter/decode/image
+Tải ảnh lên https://www.browserling.com/tools/image-to-base64 và chuyển đổi nó sang mã base64.
+Copy mã đó thay vào trong file **baseion.h**
 
 **Set một framework để có thể chạy**
-Có thể set trong hàm setupMenu() trong Tweak.xm
+Có thể set trong hàm trong Tweak.xm (Nếu app bạn làm có Framework , còn không thì bỏ qua)
 ```obj-c
-[menu setFrameworkName:"FrameworkName"];
+[UIPatch setFrameworkName:"UnityFramework"];
 ```
 
 ### Cách dùng menu:
@@ -80,10 +79,9 @@ patchOffset(ENCRYPTOFFSET("0x10020D3A8"), ENCRYPTHEX("00 F0 27 1E 00 08 20 1E C0
 ```
 
 
-<b> Offset Patcher Nút: </b>
+<b> Công tắc Offset: </b>
 ```obj-c
-
-	[menu addToggleItem:NSSENCRYPT("Hack Map") offsets:{
+[menu addToggleItem:NSSENCRYPT("Hack Map") offsets:{
                                           ENCRYPTOFFSET("0x3962580"),                                     
                                           ENCRYPTOFFSET("0x1002CB3B0"),
                                           ENCRYPTOFFSET("0x1002CB3B8")
@@ -95,17 +93,21 @@ patchOffset(ENCRYPTOFFSET("0x10020D3A8"), ENCRYPTHEX("00 F0 27 1E 00 08 20 1E C0
 ```
 
 
-<b> Chuyển đổi nhập liệu </b>
+<b> Công tắc nhập liệu: </b>
 ```obj-c
-	[menu addTextfieldItem:@" Test Textfield 2"];
+[menu addTextfieldItem:@" Test Textfield 2"];
 ```
-<b> Công tắc thanh trượt </b>
+<b> Công tắc thanh trượt: </b>
 ```obj-c
-	[menu addSliderItem:@"Test Slider 1"  minValue:0 maxValue:100];
+[menu addSliderItem:@"Test Slider 1"  minValue:0 maxValue:100];
 ```
-<b> Công tắc nhiều lựa chọn </b>
+<b>Công tắc nhiều chuyển đổi: </b>
 ```obj-c
 [menu addIndexItem:@"Test" item:@[@"10", @"20", @"40", @"80", @"120", @"140"]];
+```
+<b>Công tắc Memory: </b>
+```obj-c
+[menu addToggleMemoryItem:@"TESt" range:{ENCRYPTOFFSET("0x05529838"),ENCRYPTOFFSET("0x055298DC")} search:@[@30, @40, @50];
 ```
 
 
@@ -120,9 +122,9 @@ if(isOn) {
 ```
 <b> Nhận giá trị của : </b>
 ```obj-c
-float abc = [menu getSliderValue:@"Test Slider 1"];
-NSString *abb = [menu getTextfieldValue:@" Test Textfield 2"];
-float aaa = [menu getIndexValue:@"Test"];
+float abc = [menu getSliderValue:@"Switch Name Goes Here"];
+NSString *abb = [menu getTextfieldValue:@"Switch Name Goes Here"];
+float aaa = [menu getIndexValue:@"Switch Name Goes Here"];
 
 ```
 

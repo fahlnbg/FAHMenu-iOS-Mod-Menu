@@ -30,15 +30,15 @@
 
 * Bước 1: Cần cài Theos vào iOS
 * Bước 2: Tải [FAHMenu Mod Menu](https://github.com/fahlnbg/FAHMenu-iOS-Mod-Menu/blob/main/FAHMenu-iOS-Mod-Menu.nic.tar?raw=true) về Đường dẫn : /var/theos/templates/ios
-* LƯU Ý : Cần cài đặt file [libFAHMenu](https://github.com/fahlnbg/FAHMenu-iOS-Mod-Menu/blob/main/com.fahlnbg.libfahmenu_1.0_iphoneos-arm.deb?raw=true) để Tweak được hoạt động
-* 
+ ***LƯU Ý*** : Cần cài đặt file [libFAHMenu](https://github.com/fahlnbg/FAHMenu-iOS-Mod-Menu/blob/main/com.fahlnbg.libfahmenu_1.0_iphoneos-arm.deb?raw=true) để Tweak được hoạt động
+
 Khi cần làm 1 project mới thì chạy lệnh : "/var/theos/bin/nic.pl" và điền thông tin Mod
 
 ### Cài đặt menu:
 
 **Đổi ảnh cho menu**
 Tải ảnh lên https://www.browserling.com/tools/image-to-base64 và chuyển đổi nó sang mã base64.
-Copy mã đó thay vào trong file **baseion.h**
+Copy mã đó thay vào trong file **baseicon.h**
 
 **Set một framework để có thể chạy**
 Có thể set trong hàm trong Tweak.xm (Nếu app bạn làm có Framework , còn không thì bỏ qua)
@@ -53,9 +53,9 @@ Có thể set trong hàm trong Tweak.xm (Nếu app bạn làm có Framework , c�
 [menu setIconMenu:MenuIcon];
 [menu setMainColor:[UIColor redColor]];
 [menu setCredits:@"@@APPNAME@@ Mod Menu by @@USER@@!"];
-[menu setLoveURL:@"https://www.facebook.com/fahlnbg"];
 
-// Bắt buộc phải 
+
+// Bắt buộc phải có 
 [menu initMenu]; 
 ```
 
@@ -122,7 +122,7 @@ patchOffset(ENCRYPTOFFSET("0x10020D3A8"), ENCRYPTHEX("00 F0 27 1E 00 08 20 1E C0
 ```
 <b>Công tắc Memory: </b>
 ```obj-c
-[menu addToggleMemoryItem:@"Test" range:{ENCRYPTOFFSET("0x05529838"),ENCRYPTOFFSET("0x055298DC")} search:@[@30, @40, @50];
+[menu addToggleMemoryItem:@"Test" range:{ENCRYPTOFFSET("0x05529838"),ENCRYPTOFFSET("0x055298DC")} search:@[@"Scran,I32,200", @"Near,I32,160", @"Write,I32,9999"];
 ```
 
 
@@ -143,3 +143,12 @@ float aaa = [menu getIndexValue:@"Switch Name Goes Here"];
 
 ```
 
+
+### Credits:
+* Me
+* [Joey](https://github.com/joeyjurjens)
+  *For [iOS Mod Menu Template for Theos](https://github.com/joeyjurjens/iOS-Mod-Menu-Template-for-Theos)
+* [MJx0](https://github.com/MJx0)
+  * For [KittyMemory](https://github.com/MJx0/KittyMemory)
+* [dogo](https://github.com/dogo)
+  * For [SCLAlertView](https://github.com/dogo/SCLAlertView)

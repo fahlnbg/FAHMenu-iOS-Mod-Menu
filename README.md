@@ -1,4 +1,4 @@
-# iOS Mod Menu Template for Theos!
+# FAHMenu Mod Menu for Theos
 
 <div style="text-align: center;">
 <b>Giao diện người dùng mẫu của Menu:</b><br><br>
@@ -30,9 +30,10 @@
 
 * Bước 1: Cần cài Theos vào iOS
 * Bước 2: Tải [FAHMenu Mod Menu](https://github.com/fahlnbg/FAHMenu-iOS-Mod-Menu/blob/main/FAHMenu-iOS-Mod-Menu.nic.tar?raw=true) về Đường dẫn : /var/theos/templates/ios
- ***LƯU Ý*** : Cần cài đặt file [libFAHMenu](https://github.com/fahlnbg/FAHMenu-iOS-Mod-Menu/blob/main/com.fahlnbg.libfahmenu_1.0_iphoneos-arm.deb?raw=true) để Tweak được hoạt động
 
-Khi cần làm 1 project mới thì chạy lệnh : "/var/theos/bin/nic.pl" và điền thông tin Mod
+***LƯU Ý*** :
+* Cần cài đặt file [libFAHMenu](https://github.com/fahlnbg/FAHMenu-iOS-Mod-Menu/blob/main/com.fahlnbg.libfahmenu_1.0_iphoneos-arm.deb?raw=true) để Tweak được hoạt động
+* Khi cần làm 1 project mới thì chạy lệnh : "/var/theos/bin/nic.pl" và điền thông tin Mod
 
 ### Cài đặt menu:
 
@@ -147,7 +148,7 @@ float aaa = [menu getIndexValue:@"Switch Name Goes Here"];
 ### Credits:
 * Me
 * [Joey](https://github.com/joeyjurjens)
-  *For [iOS Mod Menu Template for Theos](https://github.com/joeyjurjens/iOS-Mod-Menu-Template-for-Theos)
+  * For [iOS Mod Menu Template for Theos](https://github.com/joeyjurjens/iOS-Mod-Menu-Template-for-Theos)
 * [MJx0](https://github.com/MJx0)
   * For [KittyMemory](https://github.com/MJx0/KittyMemory)
 * [dogo](https://github.com/dogo)

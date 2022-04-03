@@ -4,7 +4,7 @@
 #import "KittyMemory/MemoryPatch.hpp"
 #import "SCLAlertView/SCLAlertView.h"
 #import "Obfuscate.h"
-#import "../JRMemory.framework/Headers/MemScan.h"
+#import "JRMemory.framework/Headers/MemScan.h"
 
 
 
@@ -16,9 +16,9 @@
 - (void)setIconMenu:(NSString*)iconMenu_;
 - (void)setCredits:(NSString*)credits_;
 - (void)setMainColor:(UIColor*)mainColor_;
-- (void)setLoveURL:(NSString*)url_;
 
 - (void)showPopup:(NSString *)title_ description:(NSString *)description_;
+- (void)showPopupQuit:(NSString *)description_;
 
 - (void)addToggleMemoryItem:(NSString *)title_ range:(std::initializer_list<uint64_t>)range_ search:(NSArray *)search_ ;
 - (void)addToggleOffsetItem:(NSString *)title_ offsets:(std::initializer_list<uint64_t>)offsets_ bytes:(std::initializer_list<std::string>)bytes_ ;
@@ -30,6 +30,7 @@
 - (float)getSliderValue:(NSString *)itemName;
 - (NSString *)getTextfieldValue:(NSString *)itemName;
 - (float)getIndexValue:(NSString *)itemName;
+
 
 
 @end

@@ -12,7 +12,7 @@
 #include <substrate.h>
 #include <mach-o/dyld.h>
 
-static FAHMenu *menu = [[FAHMenu alloc]  init];
+static FAHMenu *menu = [[FAHMenu alloc] init];
 
 // thanks to shmoo for the usefull stuff under this comment.
 #define timer(sec) dispatch_after(dispatch_time(DISPATCH_TIME_NOW, sec * NSEC_PER_SEC), dispatch_get_main_queue(), ^

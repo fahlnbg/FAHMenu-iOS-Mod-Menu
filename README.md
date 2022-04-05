@@ -100,7 +100,7 @@ patchOffset(ENCRYPTOFFSET("0x10020D3A8"), ENCRYPTHEX("00 F0 27 1E 00 08 20 1E C0
 
 <b> Công tắc Offset: </b>
 ```obj-c
-[menu addToggleItem:NSSENCRYPT("Hack Map") offsets:{
+[menu addToggleItem:NSSENCRYPT("Hack On") offsets:{
                                           ENCRYPTOFFSET("0x3962580"),                                     
                                           ENCRYPTOFFSET("0x1002CB3B0"),
                                           ENCRYPTOFFSET("0x1002CB3B8")
@@ -129,7 +129,7 @@ patchOffset(ENCRYPTOFFSET("0x10020D3A8"), ENCRYPTHEX("00 F0 27 1E 00 08 20 1E C0
 [menu addToggleMemoryItem:@"Test" range:{ENCRYPTOFFSET("0x100000000"),
                                          ENCRYPTOFFSET("0x160000000")
                                        } search:@[
-                                         NSSENCRYPT("Scran,I32,200"),
+                                         NSSENCRYPT("Scan,I32,200"),
                                          NSSENCRYPT("Near,I32,160"),
                                          .....
                                          NSSENCRYPT("Write,I32,9999")

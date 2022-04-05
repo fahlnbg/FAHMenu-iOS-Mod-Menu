@@ -23,6 +23,7 @@
   * Hỗ trợ MSHookMemory
   * Patch Bytes không giới hạn kí tự
 * Mã hoá các offset và bytes khi hoàn thành code
+* Công tắc Memory dựa trên [IGG](https://github.com/nongshifu/IGG)
 
 <br>
 
@@ -38,10 +39,12 @@
 ### Cài đặt menu:
 
 **Đổi ảnh cho menu**
+
 Tải ảnh lên https://www.browserling.com/tools/image-to-base64 và chuyển đổi nó sang mã base64.
 Copy mã đó thay vào trong file **baseicon.h**
 
 **Set một framework để có thể chạy**
+
 Có thể set trong hàm trong Tweak.xm (Nếu app bạn làm có Framework , còn không thì bỏ qua)
 ```obj-c
 [UIPatch setFrameworkName:"UnityFramework"];
@@ -65,7 +68,7 @@ Có thể set trong hàm trong Tweak.xm (Nếu app bạn làm có Framework , c�
 
 **Mã hoá**
 
-Note trước khi hiển thị tất cả các ví dụ chuyển đổi; Có thể và *nên* mã hóa các offset,mã hexes, chuỗi c-string và NSStrings. Dưới đây, có thể thấy cú pháp cho mỗi loại chuỗi.
+Bạn *nên* mã hóa các offset,mã hexes và NSStrings. Dưới đây, có thể thấy cú pháp cho mỗi loại chuỗi.
 
 **Offsets:**
 ```c
@@ -123,7 +126,14 @@ patchOffset(ENCRYPTOFFSET("0x10020D3A8"), ENCRYPTHEX("00 F0 27 1E 00 08 20 1E C0
 ```
 <b>Công tắc Memory: </b>
 ```obj-c
-[menu addToggleMemoryItem:@"Test" range:{ENCRYPTOFFSET("0x05529838"),ENCRYPTOFFSET("0x055298DC")} search:@[@"Scran,I32,200", @"Near,I32,160", @"Write,I32,9999"];
+[menu addToggleMemoryItem:@"Test" range:{ENCRYPTOFFSET("0x100000000"),
+                                         ENCRYPTOFFSET("0x160000000")
+                                       } search:@[
+                                         NSSENCRYPT("Scran,I32,200"),
+                                         NSSENCRYPT("Near,I32,160"),
+                                         .....
+                                         NSSENCRYPT("Write,I32,9999")
+                                       ];
 ```
 
 
@@ -146,10 +156,15 @@ float aaa = [menu getIndexValue:@"Switch Name Goes Here"];
 
 
 ### Credits:
-* Me
+* Me ( fahlnbg )
+  * [Donate Paypal](https://www.paypal.me/fahlnbg) or [Donate MoMo](https://me.momo.vn/fahlnbg)
 * [Joey](https://github.com/joeyjurjens)
   * For [iOS Mod Menu Template for Theos](https://github.com/joeyjurjens/iOS-Mod-Menu-Template-for-Theos)
 * [MJx0](https://github.com/MJx0)
   * For [KittyMemory](https://github.com/MJx0/KittyMemory)
 * [dogo](https://github.com/dogo)
   * For [SCLAlertView](https://github.com/dogo/SCLAlertView)
+* [nongshifu](https://github.com/nongshifu)
+  * For [IGG](https://github.com/nongshifu/IGG)
+ 
+ 

@@ -21,7 +21,7 @@ timer(2){
 
 	[menu setTitle:@"@@APPNAME@@ Mod Menu"];
 	[menu setIconMenu:MenuIcon];
-	[menu setMainColor:[UIColor redColor]];
+	//[menu setMainColor:[UIColor redColor]];
 	[menu setCredits:@"@@APPNAME@@ Mod Menu by @@USER@@!"];
 	[menu initMenu];
 	setup();

@@ -133,7 +133,7 @@ patchOffset(ENCRYPTOFFSET("0x10020D3A8"), ENCRYPTHEX("00 F0 27 1E 00 08 20 1E C0
                                          NSSENCRYPT("Near,I32,160"),
                                          .....
                                          NSSENCRYPT("Write,I32,9999")
-                                       ];
+                                       ]];
 ```
 
 

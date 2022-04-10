@@ -9,7 +9,7 @@
 <br>
 
 ### Tính năng:
-* Giao diện người dùng có thể tùy chỉnh
+* Giao diện và dễ sử dụng
 * Menu có thể tùy chỉnh & biểu tượng hình ảnh nút
 * 5 loại Công tắc :
   * Công tắc Offset
@@ -129,12 +129,18 @@ patchOffset(ENCRYPTOFFSET("0x10020D3A8"), ENCRYPTHEX("00 F0 27 1E 00 08 20 1E C0
 [menu addToggleMemoryItem:@"Test" range:{ENCRYPTOFFSET("0x100000000"),
                                          ENCRYPTOFFSET("0x160000000")
                                        } search:@[
-                                         NSSENCRYPT("Scan,I32,200"),
-                                         NSSENCRYPT("Near,I32,160"),
+                                         NSSENCRYPT("A|B|C"),
+                                         NSSENCRYPT("A1|B1|C1"),
                                          .....
-                                         NSSENCRYPT("Write,I32,9999")
+                                         NSSENCRYPT("An|Bn|Cn")
                                        ]];
 ```
+
+> A: Scan , Near hoặc Write
+> 
+> B: Double , Float , I8 , I16 , I32 , I64 , U8 , U16 , U32 hoặc U64
+> 
+> C : Giá trị cần tìm hoặc thay thế
 
 
 <b> Kiểm tra trạng thái công tắc

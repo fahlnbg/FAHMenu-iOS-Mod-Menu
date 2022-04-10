@@ -34,7 +34,8 @@
 
 ***LƯU Ý*** :
 * Cần cài đặt file [libFAHMenu](https://github.com/fahlnbg/FAHMenu-iOS-Mod-Menu/blob/main/com.fahlnbg.libfahmenu_1.0_iphoneos-arm.deb?raw=true) để Tweak được hoạt động
-* Khi cần làm 1 project mới thì chạy lệnh : "/var/theos/bin/nic.pl" và điền thông tin Mod
+* Khi cần làm 1 project mới thì chạy lệnh : "/var/theos/bin/nic.pl" và điền thông tin Mod.
+* Với iGG thì range mặc định là 0x10000000 tới 0x16000000 (có thể tuỳ chỉnh) và Near range mặc định là 0x100 (không thể tuỳ chỉnh)
 
 ### Cài đặt menu:
 
@@ -45,7 +46,7 @@ Copy mã đó thay vào trong file **baseicon.h**
 
 **Set một framework để có thể chạy**
 
-Có thể set trong hàm trong Tweak.xm (Nếu app bạn làm có Framework , còn không thì bỏ qua)
+Có thể set trong hàm trong Tweak.xm (Nếu app bạn làm có Framework, còn không thì bỏ qua)
 ```obj-c
 [UIPatch setFrameworkName:"UnityFramework"];
 ```
@@ -134,16 +135,19 @@ patchOffset(ENCRYPTOFFSET("0x10020D3A8"), ENCRYPTHEX("00 F0 27 1E 00 08 20 1E C0
                                          .....
                                          NSSENCRYPT("An|Bn|Cn")
                                        ]];
+Ví dụ: NSSENCRYPT("Scan|I32|250"),
+       NSSENCRYPT("Near|Float|0.066"),
+       NSSENCRYPT("Write|I64|1.002")
 ```
 
-> A: Scan , Near hoặc Write
+> A: Scan, Near hoặc Write
 > 
-> B: Double , Float , I8 , I16 , I32 , I64 , U8 , U16 , U32 hoặc U64
+> B: Double, Float, I8, I16, I32, I64, U8, U16, U32 hoặc U64
 > 
-> C : Giá trị cần tìm hoặc thay thế
+> C: Giá trị cần tìm hoặc thay thế
 
 
-<b> Kiểm tra trạng thái công tắc
+<b> Kiểm tra trạng thái công tắc: </b>
 ```obj-c
  BOOL isOn = [menu isItemOn:@"Switch Name Goes Here"];
 
@@ -152,7 +156,7 @@ if(isOn) {
 }
 
 ```
-<b> Nhận giá trị của : </b>
+<b> Nhận giá trị của: </b>
 ```obj-c
 float abc = [menu getSliderValue:@"Switch Name Goes Here"];
 NSString *abb = [menu getTextfieldValue:@"Switch Name Goes Here"];
